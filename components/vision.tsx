@@ -2,11 +2,11 @@
 
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
+import Link from "next/link"
 
 const bodyLines = [
-  "Most automation tools solve one problem. Paxly is being built to eliminate the category.",
-  "Contract generation is live now. What's coming: full transaction coordination — every party, every deadline, every document, tracked and reminded automatically.",
-  "The contract was the door. We're building what's behind it.",
+  "Contract generation is live now. What's coming: full transaction coordination — every party, every deadline, every document, tracked automatically.",
+  "Most tools add a step. Paxly removes them. The contract was the door. We're building what's behind it.",
 ]
 
 export function Vision() {
@@ -22,11 +22,9 @@ export function Vision() {
       ref={containerRef}
       className="relative py-32 md:py-48 bg-[#f5f1eb]"
     >
-      {/* Fade from dark at top */}
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0a0a0a] to-transparent pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6">
-        {/* Section Label */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,10 +32,9 @@ export function Vision() {
           transition={{ duration: 0.5 }}
           className="text-[#6b6560] text-xs tracking-[0.3em] uppercase font-medium mb-12"
         >
-          Infrastructure, Not a Feature
+          Built for Agents
         </motion.p>
 
-        {/* Headline */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,19 +42,15 @@ export function Vision() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#0e0e0e] leading-[1.15] mb-16"
         >
-          Real estate has had the same workflow for 40 years.
+          The paperwork doesn&apos;t close deals.
           <br />
-          <span className="text-[#c8522a]">
-            That ends with your next deal.
-          </span>
+          <span className="text-[#c8522a]">You do.</span>
         </motion.h2>
 
-        {/* Body Text */}
         <div className="space-y-8 mb-16">
           {bodyLines.map((line, index) => {
             const start = 0.2 + index * 0.1
             const end = start + 0.15
-
             return (
               <BodyLine
                 key={index}
@@ -70,34 +63,42 @@ export function Vision() {
           })}
         </div>
 
-        {/* Industry Notes */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="space-y-4 border-l-2 border-[#c8522a] pl-6 mb-12"
-        >
-          <p className="font-sans text-[#c8522a] italic text-lg">
-            If you&apos;re in real estate — this was built for your workflow.
-          </p>
-          <p className="font-sans text-[#c8522a] italic text-lg">
-            If you&apos;re in another industry and the infrastructure sounds
-            familiar — we&apos;re paying attention.
-          </p>
-        </motion.div>
-
-        {/* Location Note */}
+        {/* Trust line */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="font-sans text-[#6b6560] text-sm"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="font-sans text-[#6b6560] text-sm mb-12"
         >
-          Currently serving Virginia real estate agents. Watching everything
-          else.
+          Currently serving Virginia real estate agents. PA contracts and RDIS forms live now.
         </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-wrap gap-4"
+        >
+          <Link
+            href="https://buy.stripe.com/00w28r0x1gZUbTGcpk4Ja03"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 bg-[#c8522a] text-white font-medium rounded-lg hover:bg-[#b04824] transition-all duration-300 hover:shadow-lg hover:shadow-[#c8522a]/20"
+          >
+            Get Started — $99/mo →
+          </Link>
+          <Link
+            href="https://calendly.com/ejfllc23/paxly-demo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 border border-[#0e0e0e]/20 text-[#0e0e0e] font-medium rounded-lg hover:bg-[#0e0e0e] hover:text-[#f5f1eb] transition-all duration-300"
+          >
+            Book a Demo
+          </Link>
+        </motion.div>
       </div>
     </section>
   )
@@ -116,7 +117,6 @@ function BodyLine({
 }) {
   const opacity = useTransform(progress, [start, end], [0.3, 1])
   const y = useTransform(progress, [start, end], [20, 0])
-
   return (
     <motion.p
       style={{ opacity, y }}

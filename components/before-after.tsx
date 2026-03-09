@@ -8,7 +8,7 @@ const beforeItems = [
   { task: "Pull up MLS listing", time: "3 min" },
   { task: "Copy property details", time: "5 min" },
   { task: "Fill in buyer/seller info", time: "10 min" },
-  { task: "Cross-check everything", time: "7 min" },
+  { task: "Cross-check for errors", time: "7 min" },
   { task: "Save, export, send", time: "2 min" },
 ]
 
@@ -25,7 +25,6 @@ export function BeforeAfter() {
 
   useEffect(() => {
     if (isInView) {
-      // Show after column after before column finishes animating
       const timer = setTimeout(() => {
         setShowAfter(true)
       }, beforeItems.length * 150 + 500)
@@ -39,12 +38,31 @@ export function BeforeAfter() {
       ref={ref}
       className="relative py-32 md:py-48 bg-[#f5f1eb]"
     >
-      {/* Fade from dark at top */}
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0a0a0a] to-transparent pointer-events-none" />
-      
+
       <div className="max-w-5xl mx-auto px-6">
+        {/* Three questions — the gut check */}
+        <div className="text-center mb-24 space-y-6">
+          {[
+            "How many minutes did your last contract take?",
+            "How many times have you caught a typo before sending?",
+            "What would you do with 30 extra minutes per deal?",
+          ].map((q, i) => (
+            <motion.p
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              className="font-serif text-2xl md:text-3xl text-[#0e0e0e]"
+            >
+              {q}
+            </motion.p>
+          ))}
+        </div>
+
+        {/* Before / After columns */}
         <div className="grid md:grid-cols-2 gap-12 md:gap-0">
-          {/* Before Column */}
+          {/* Before */}
           <div className="md:pr-16 md:border-r border-[#d9d4cc]">
             <motion.h3
               initial={{ opacity: 0 }}
@@ -85,7 +103,7 @@ export function BeforeAfter() {
             </motion.div>
           </div>
 
-          {/* After Column */}
+          {/* After */}
           <div className="md:pl-16">
             <motion.h3
               initial={{ opacity: 0 }}
@@ -106,9 +124,7 @@ export function BeforeAfter() {
                   className="flex justify-between items-center font-sans text-[#c8522a] text-lg"
                 >
                   <span className="font-medium">{item.task}</span>
-                  <span className="font-mono text-sm font-semibold">
-                    {item.time}
-                  </span>
+                  <span className="font-mono text-sm font-semibold">{item.time}</span>
                 </motion.li>
               ))}
             </ul>
@@ -126,7 +142,6 @@ export function BeforeAfter() {
           </div>
         </div>
 
-        {/* Bottom Caption */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={showAfter ? { opacity: 1, y: 0 } : {}}

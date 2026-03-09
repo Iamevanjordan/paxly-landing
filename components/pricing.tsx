@@ -2,10 +2,11 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import Link from "next/link"
 
 const features = [
   "PA Contract generation — live now",
-  "RDIS Listing Form — page 1 live, page 2 in progress",
+  "RDIS Listing Form — live and expanding",
   "PropertyDetails PDF parsing",
   "Deal pipeline — New → In Progress → Sent → Closed",
   "Unlimited generations",
@@ -22,11 +23,9 @@ export function Pricing() {
       ref={ref}
       className="relative py-32 md:py-48 bg-[#f5f1eb]"
     >
-      {/* Fade from dark at top */}
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0a0a0a] to-transparent pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6">
-        {/* Section Label */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -36,24 +35,22 @@ export function Pricing() {
           Pricing
         </motion.p>
 
-        {/* Headline */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl font-bold text-[#0e0e0e] leading-tight mb-12"
         >
-          One price. No surprises.
+          One price.
           <br />
-          No &ldquo;contact us.&rdquo;
+          No surprises.
         </motion.h2>
 
-        {/* Price */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-8"
+          className="mb-12"
         >
           <span className="font-serif text-8xl md:text-9xl font-bold text-[#c8522a]">
             $99
@@ -61,18 +58,6 @@ export function Pricing() {
           <span className="font-sans text-2xl text-[#6b6560] ml-2">/month</span>
         </motion.div>
 
-        {/* Founder Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="inline-block px-4 py-2 bg-[#c8522a] text-white font-sans text-sm font-medium rounded-lg mb-12"
-        >
-          Founder pricing — locked forever for the first 100 agents. $199/month
-          after that.
-        </motion.div>
-
-        {/* Features */}
         <motion.ul
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -93,33 +78,38 @@ export function Pricing() {
           ))}
         </motion.ul>
 
-        {/* Subscribe Button */}
+        {/* Both CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.9 }}
-          className="mb-8"
+          className="flex flex-wrap gap-4 mb-8"
         >
-          <a
+          <Link
             href="https://buy.stripe.com/00w28r0x1gZUbTGcpk4Ja03"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-4 bg-[#c8522a] text-white font-medium rounded-lg hover:bg-[#b04824] transition-all duration-300 hover:shadow-lg hover:shadow-[#c8522a]/20 text-lg"
           >
-            Subscribe Now
-            <span className="ml-2">→</span>
-          </a>
+            Get Started — $99/mo →
+          </Link>
+          <Link
+            href="https://calendly.com/ejfllc23/paxly-demo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-4 border border-[#0e0e0e]/20 text-[#0e0e0e] font-medium rounded-lg hover:bg-[#0e0e0e] hover:text-[#f5f1eb] transition-all duration-300 text-lg"
+          >
+            Book a Demo first
+          </Link>
         </motion.div>
 
-        {/* Note */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 1 }}
           className="font-sans text-[#6b6560] text-sm"
         >
-          No contracts. Cancel anytime. Built by someone who answers their
-          email.
+          No contracts. Cancel anytime. Built by someone who answers their email.
         </motion.p>
       </div>
     </section>

@@ -1,7 +1,7 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 import { GradientOrb } from "./gradient-orb"
 
@@ -20,24 +20,20 @@ export function Hero() {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]"
     >
-      {/* Gradient Orb Background */}
       <GradientOrb />
 
-      {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-5 gap-12 items-center">
-        {/* Left Column - Main Content */}
+        {/* Left Column */}
         <div className="lg:col-span-3">
-          {/* Eyebrow */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#c8522a] text-xs tracking-[0.3em] uppercase font-medium mb-8"
           >
-            Real Estate Transaction Automation
+            Real Estate Contract Automation
           </motion.p>
 
-          {/* Headline */}
           <div className="space-y-1 mb-8">
             <motion.h1
               initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
@@ -45,7 +41,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1]"
             >
-              You just accepted
+              Stop filling out
             </motion.h1>
             <motion.h1
               initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
@@ -53,7 +49,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1]"
             >
-              an offer.
+              contracts by hand.
             </motion.h1>
             <motion.h1
               initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
@@ -61,7 +57,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-[#c8522a] leading-[1.1] pt-2"
             >
-              Now comes the 30 minutes
+              Paxly fills them
             </motion.h1>
             <motion.h1
               initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
@@ -69,22 +65,20 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.9 }}
               className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-[#c8522a] leading-[1.1]"
             >
-              nobody pays you for.
+              in 20 seconds.
             </motion.h1>
           </div>
 
-          {/* Sub-headline */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.6 }}
             transition={{ duration: 0.8, delay: 1.2 }}
             className="text-white text-lg md:text-xl max-w-xl mb-10 leading-relaxed"
           >
-            Paxly is the system that handles the paperwork so you can focus on
-            the next deal. Not someday. Starting with your next transaction.
+            Upload your PropertyDetails PDF. Click generate. Download a filled contract. 
+            Less time on paperwork. Less room for error.
           </motion.p>
 
-          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -97,84 +91,58 @@ export function Hero() {
               rel="noopener noreferrer"
               className="px-8 py-4 bg-[#c8522a] text-white font-medium rounded-lg hover:bg-[#b04824] transition-all duration-300 hover:shadow-lg hover:shadow-[#c8522a]/20"
             >
-              Book a 15-Minute Demo
-              <span className="ml-2">→</span>
+              Book a Demo →
             </Link>
             <Link
-              href="https://youtu.be/K0ZfB9w_8Xo"
+              href="https://buy.stripe.com/00w28r0x1gZUbTGcpk4Ja03"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 border border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-all duration-300"
             >
-              Watch It Work
-              <span className="ml-2">▶</span>
+              Get Started — $99/mo
             </Link>
           </motion.div>
 
-          {/* Micro-copy */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.4 }}
             transition={{ duration: 0.6, delay: 1.6 }}
             className="text-white text-sm"
           >
-            No pitch deck. No contracts. Just a live walkthrough.
+            No setup fees. No contracts. Cancel anytime.
           </motion.p>
         </div>
 
-        {/* Right Column - Stats Panel */}
+        {/* Right Column - Stats */}
         <motion.div
           style={{ opacity: statsOpacity, x: statsX }}
           className="lg:col-span-2 hidden lg:block"
         >
           <div className="bg-[#141414] border border-white/10 rounded-2xl p-8">
             <div className="space-y-8">
-              {/* Stat 1 */}
               <div>
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="font-mono text-4xl font-bold text-white">
-                    20s
-                  </span>
-                </div>
-                <p className="text-white/50 text-sm">
+                <span className="font-mono text-4xl font-bold text-white">20s</span>
+                <p className="text-white/50 text-sm mt-1">
                   To generate a filled contract from a PDF
                 </p>
               </div>
-
-              {/* Divider */}
               <div className="h-px bg-white/10" />
-
-              {/* Stat 2 */}
               <div>
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="font-mono text-4xl font-bold text-white">
-                    12
-                  </span>
-                </div>
-                <p className="text-white/50 text-sm">
+                <span className="font-mono text-4xl font-bold text-white">12</span>
+                <p className="text-white/50 text-sm mt-1">
                   Fields auto-populated right now — more every week
                 </p>
               </div>
-
-              {/* Divider */}
               <div className="h-px bg-white/10" />
-
-              {/* Stat 3 */}
               <div>
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="font-mono text-4xl font-bold text-white">
-                    0
-                  </span>
-                </div>
-                <p className="text-white/50 text-sm">
+                <span className="font-mono text-4xl font-bold text-white">0</span>
+                <p className="text-white/50 text-sm mt-1">
                   Minutes of manual data entry when you use it
                 </p>
               </div>
             </div>
-
-            {/* Note */}
             <p className="mt-8 text-white/40 text-sm italic border-t border-white/10 pt-6">
-              We&apos;re building this in public. 12 fields today. 194 in the map.
+              Building in public. 12 fields today. 194 in the map.
             </p>
           </div>
         </motion.div>
