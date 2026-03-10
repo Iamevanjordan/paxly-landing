@@ -7,7 +7,7 @@ const steps = [
   {
     number: "01",
     title: "Upload",
-    body: "Upload your PropertyDetails PDF. Paxly reads it — address, price, parties, terms. Automatically.",
+    body: "Upload your Property Details PDF. Paxly reads it — address, price, parties, terms. Automatically.",
     badge: "10 seconds",
     gif: "Screen recording: PDF upload → fields extracting from document",
   },
@@ -99,7 +99,7 @@ export function HowItWorks() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center font-sans text-white text-sm mt-24"
         >
-          That&apos;s actually the whole thing. We know.
+          That&apos;s actually the whole thing... Yea. We know.
         </motion.p>
       </div>
     </section>

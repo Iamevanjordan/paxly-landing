@@ -109,7 +109,7 @@ export function Pricing() {
           transition={{ duration: 0.5, delay: 1 }}
           className="font-sans text-[#6b6560] text-sm"
         >
-          No contracts. Cancel anytime. Built by someone who answers their email.
+          No contracts. Cancel anytime. Built by someone who actually answers their email.
         </motion.p>
       </div>
     </section>

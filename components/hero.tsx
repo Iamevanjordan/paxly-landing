@@ -57,7 +57,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-[#c8522a] leading-[1.1] pt-2"
             >
-              Paxly fills them
+              Paxly does it
             </motion.h1>
             <motion.h1
               initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
@@ -75,7 +75,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="text-white text-lg md:text-xl max-w-xl mb-10 leading-relaxed"
           >
-            Upload your PropertyDetails PDF. Click generate. Download a filled contract. 
+            Upload your Property Details PDF. Click generate. Download a filled contract. 
             Less time on paperwork. Less room for error.
           </motion.p>
 
@@ -142,7 +142,7 @@ export function Hero() {
               </div>
             </div>
             <p className="mt-8 text-white/40 text-sm italic border-t border-white/10 pt-6">
-              Building in public. 12 fields today. 194 in the map.
+              We're building in public. 2 contracts today. A world to go.
             </p>
           </div>
         </motion.div>

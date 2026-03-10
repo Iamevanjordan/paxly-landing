@@ -5,8 +5,8 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 
 const bodyLines = [
-  "Contract generation is live now. What's coming: full transaction coordination — every party, every deadline, every document, tracked automatically.",
-  "Most tools add a step. Paxly removes them. The contract was the door. We're building what's behind it.",
+  "Contract generation is live now. What's coming next: full transaction coordination — every party, every deadline, every document, tracked automatically.",
+  "Most tools add more steps. Paxly removes them. The contract was the door. We're building what's behind it.",
 ]
 
 export function Vision() {
@@ -71,7 +71,7 @@ export function Vision() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="font-sans text-[#6b6560] text-sm mb-12"
         >
-          Currently serving Virginia real estate agents. PA contracts and RDIS forms live now.
+          Currently serving Virginia real estate agents. Purchase Agreement and RDIS forms live now.
         </motion.p>
 
         {/* CTAs */}
