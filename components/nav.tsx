@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation"
 export function Nav({ subpage = false }: { subpage?: boolean }) {
   const [scrolled, setScrolled] = useState(false)
   const [isLight, setIsLight] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
   const isHome = pathname === "/"
 
@@ -58,10 +59,10 @@ export function Nav({ subpage = false }: { subpage?: boolean }) {
           >
             Paxly
           </Link>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 sm:gap-6">
             <Link
               href="/how-it-works"
-              className={`font-sans text-sm font-medium transition-colors duration-200 ${
+              className={`hidden sm:inline-flex font-sans text-sm font-medium transition-colors duration-200 ${
                 pathname === "/how-it-works"
                   ? "text-[#c8522a]"
                   : "text-white/60 hover:text-white"
@@ -71,7 +72,7 @@ export function Nav({ subpage = false }: { subpage?: boolean }) {
             </Link>
             <Link
               href="/pricing"
-              className={`font-sans text-sm font-medium transition-colors duration-200 ${
+              className={`hidden sm:inline-flex font-sans text-sm font-medium transition-colors duration-200 ${
                 pathname === "/pricing"
                   ? "text-[#c8522a]"
                   : "text-white/60 hover:text-white"
@@ -83,7 +84,7 @@ export function Nav({ subpage = false }: { subpage?: boolean }) {
               href="https://buy.stripe.com/00w28r0x1gZUbTGcpk4Ja03"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex px-5 py-2.5 rounded-full text-sm font-medium bg-[#c8522a] text-white hover:bg-[#b04824] transition-all duration-300"
+              className="inline-flex px-5 py-2.5 rounded-full text-sm font-medium bg-[#c8522a] text-white hover:bg-[#b04824] transition-all duration-300"
             >
               Get Started
             </Link>
@@ -95,8 +96,43 @@ export function Nav({ subpage = false }: { subpage?: boolean }) {
             >
               Book a Demo
             </Link>
+            <button
+              className="sm:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-label="Toggle menu"
+            >
+              <span className={`block w-5 h-px bg-white transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+              <span className={`block w-5 h-px bg-white transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-5 h-px bg-white transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+            </button>
           </div>
         </div>
+        {menuOpen && (
+          <div className="sm:hidden bg-[#0a0a0a]/98 border-t border-white/10 px-6 py-4 flex flex-col gap-4">
+            <Link
+              href="/how-it-works"
+              onClick={() => setMenuOpen(false)}
+              className={`font-sans text-sm font-medium transition-colors duration-200 ${
+                pathname === "/how-it-works"
+                  ? "text-[#c8522a]"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              How It Works
+            </Link>
+            <Link
+              href="/pricing"
+              onClick={() => setMenuOpen(false)}
+              className={`font-sans text-sm font-medium transition-colors duration-200 ${
+                pathname === "/pricing"
+                  ? "text-[#c8522a]"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              Pricing
+            </Link>
+          </div>
+        )}
       </motion.nav>
     )
   }
@@ -149,7 +185,7 @@ export function Nav({ subpage = false }: { subpage?: boolean }) {
             href="https://buy.stripe.com/00w28r0x1gZUbTGcpk4Ja03"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex px-5 py-2.5 rounded-full text-sm font-medium bg-[#c8522a] text-white hover:bg-[#b04824] transition-all duration-300"
+            className="inline-flex px-5 py-2.5 rounded-full text-sm font-medium bg-[#c8522a] text-white hover:bg-[#b04824] transition-all duration-300"
           >
             Get Started
           </Link>
@@ -165,8 +201,35 @@ export function Nav({ subpage = false }: { subpage?: boolean }) {
           >
             Book a Demo
           </Link>
+          <button
+            className="sm:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle menu"
+          >
+            <span className={`block w-5 h-px transition-all duration-200 ${isLight && scrolled ? "bg-[#0e0e0e]" : "bg-white"} ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+            <span className={`block w-5 h-px transition-all duration-200 ${isLight && scrolled ? "bg-[#0e0e0e]" : "bg-white"} ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-5 h-px transition-all duration-200 ${isLight && scrolled ? "bg-[#0e0e0e]" : "bg-white"} ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+          </button>
         </div>
       </div>
+      {menuOpen && (
+        <div className="sm:hidden bg-[#0a0a0a]/98 border-t border-white/10 px-6 py-4 flex flex-col gap-4">
+          <Link
+            href="/how-it-works"
+            onClick={() => setMenuOpen(false)}
+            className="font-sans text-sm font-medium text-white/60 hover:text-white transition-colors duration-200"
+          >
+            How It Works
+          </Link>
+          <Link
+            href="/pricing"
+            onClick={() => setMenuOpen(false)}
+            className="font-sans text-sm font-medium text-white/60 hover:text-white transition-colors duration-200"
+          >
+            Pricing
+          </Link>
+        </div>
+      )}
     </motion.nav>
   )
 }
